@@ -7,6 +7,9 @@ let refs = {
 let intervalId = null;
 
 refs.startBtn.addEventListener('click', () => {
+  if (intervalId) {
+    return;
+  }
   intervalId = setInterval(() => {
     const rndColor = getRandomHexColor();
     refs.body.style.backgroundColor = `${rndColor}`;
