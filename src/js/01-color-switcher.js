@@ -7,9 +7,7 @@ let refs = {
 let intervalId = null;
 
 refs.startBtn.addEventListener('click', () => {
-  if (intervalId) {
-    return;
-  }
+  refs.startBtn.disabled = true;
   intervalId = setInterval(() => {
     const rndColor = getRandomHexColor();
     refs.body.style.backgroundColor = `${rndColor}`;
@@ -18,6 +16,7 @@ refs.startBtn.addEventListener('click', () => {
 
 refs.stopBtn.addEventListener('click', () => {
   clearInterval(intervalId);
+  refs.startBtn.disabled = false;
 });
 
 function getRandomHexColor() {
